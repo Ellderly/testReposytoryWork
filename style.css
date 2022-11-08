@@ -149,7 +149,7 @@ form:nth-child(7){
 }
 #map{
     width: 100%;
-    height: 573px;
+    height: auto;
 }
 
 @media(max-width: 1200px){
@@ -160,6 +160,9 @@ form:nth-child(7){
 @media(max-width: 967px){
     .wrapper{
         grid-template-columns: 1fr;
+    }
+    #map{
+        height: 573px;
     }
 }
 @media(max-width: 591px){
