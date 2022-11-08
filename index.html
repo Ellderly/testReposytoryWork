@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="content">
+        <h1 class="content-h">Contact Us</h1>
+        <p class="content-p">The Voodoo team is looking forward to hearing from you!</p>
+        <form class="form" action="#">
+            <input class="form-item" type="text" name="name" placeholder="Full Name*">
+            <input class="form-item" type="text" name="name" placeholder="Title/Position*">
+            <select>
+                <option>Practice / Institution*</option>
+                <option>1Option1</option>
+                <option>2Option2</option>
+                <option>3Option3</option>
+                <option>4Option4</option>
+            </select>
+            <input class="form-item" type="tel" name="number" placeholder="Phone Number*">
+            <input class="form-item" type="email" name="email" placeholder="Email Address*">
+            <select>
+                <option>Medical Profession*</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+                <option>Option 5</option>
+            </select>
+            <select  class="form-item item-inquiry" >
+                <option>Type of Inquiry*</option>
+                <option>text2</option>
+                <option>text3</option>
+                <option>text4</option>
+            </select>
+            <textarea class="form-item textarea" name="textarea" id="textarea" cols="30" rows="10" placeholder="Enter Message*"></textarea>
+            <input type="submit"  placeholder="Send Message" class="submit-form">
+        </form>
+    </div>
+    <div id="map" class="map"></div>
+</div>
+
+<script>
+
+    function initMap () {
+        let element = document.getElementById('map');
+        let options = {
+            center: {lat: 43.452855044662705, lng: -80.51336267866398},
+            zoom: 16,
+            disableDefaultUI: true,
+        }
+        let myMap = new google.maps.Map(element, options)
+
+        let marker = new google.maps.Marker({
+            position: {lat: 43.452855044662705, lng: -80.51336267866398},
+            map: myMap,
+            icon: 'Vector.svg'
+        })
+
+       let info = new google.maps.InfoWindow({
+           content:
+               '<div style="box-sizing: border-box; padding: 10px;">' +
+               '<h3 style="font-size: 12px; margin: 0">Voodoo</h3>' +
+               '<p style="margin: 0; font-size: 12px; max-width: 187px; line-height: 20px;">137 Glasgow St., Unit 115 Kitchener, ON N2G 4X8 <br> Ukraine</p>' +
+               '<div style="line-height: 22px; display: flex; gap: 8px;color: #858585; margin-left: 8px;"><img src="Shape.svg" alt="phone">1-800-480-9597</div>' +
+               '<div style="line-height: 22px; display: flex; gap: 8px;color: #858585; margin-left: 8px;"><img src="mail.svg" alt="phone">info@voodoo.com</div>' +
+               '</div>'
+       });
+        info.open(myMap, marker);
+
+
+        let styleArray = [
+            {
+                featureType: "administrative",
+                elementType: "labels",
+                stylers: [
+                    { visibility: "off" }
+                ]
+            },{
+                featureType: "landscape",
+                elementType: "labels",
+                stylers: [
+                    { visibility: "off" }
+                ]
+            },{
+                featureType: "poi",
+                elementType: "labels",
+                stylers: [
+                    { visibility: "off" }
+                ]
+            },
+        ];
+        myMap.setOptions({styles: styleArray});
+    }
+</script>
+<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp4mypNUkiisiumY6NRcEiE0nOY9EuOO0&callback=initMap"></script>
+    <script src="main.js"></script>
+    <script src="form.js"></script>
+
+</body>
+</html>
